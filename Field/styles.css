@@ -1,0 +1,17 @@
+#topMiddleRow {
+	background-color: #0087B1;
+}
+
+#signUp {
+	color: white;
+}
+
+#firstAdd {
+	color:#0087B1;
+}
+
+#firstName, #address {
+	background-color: #F8F8F8;
+	padding-bottom: 20px;
+}
+
