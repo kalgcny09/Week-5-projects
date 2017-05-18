@@ -19,14 +19,14 @@ $(document).ready(function(){
 		playersHand.push(theDeck.shift());
 		dealersHand.push(theDeck.shift());
 
-		placeCard('player',1,playersHand[0])
-		placeCard('player',2,playersHand[1])
+		setTimeout(function(){placeCard('player',1,playersHand[0]);},200)
+		setTimeout(function(){placeCard('player',2,playersHand[1]);},1600)
 
-		placeCard('dealer',1,dealersHand[0])
-		placeCard('dealer',2,dealersHand[1])
+		setTimeout(function(){placeCard('dealer',1,dealersHand[0]);},800)
+		setTimeout(function(){placeCard('dealer',2,dealersHand[1]);},2000)
 
-		calculateTotal(playersHand,'player')
-		calculateTotal(dealersHand,'dealer')
+		calculateTotal(playersHand,'player');
+		calculateTotal(dealersHand,'dealer');
 
 
 	});
@@ -40,17 +40,19 @@ $(document).ready(function(){
 			calculateTotal(playersHand, 'player');
 		}
 
+		checkWin();
+
 	});
 
 	$('.stand-button').click(function(){
-		var dealerTotal = calculateTotal(dealersHand, 'dealer')
+		var dealerTotal = calculateTotal(dealersHand, 'dealer');
 
 		while(dealerTotal < 17){
 			dealersHand.push(theDeck.shift());
 			var lastCardIndex = dealersHand.length -1;
 			var slotForNewCard = dealersHand.length;
-			placeCard('dealer', slotForNewCard,dealersHand[lastCardIndex])
-			dealerTotal = calculateTotal
+			placeCard('dealer', slotForNewCard,dealersHand[lastCardIndex]);
+			dealerTotal = calculateTotal(dealersHand, 'dealer');
 		}
 
 		checkWin();
@@ -65,7 +67,7 @@ $(document).ready(function(){
 
 		for(let s=0; s<suits.length; s++){
 			for(let c =1; c<= 13; c++) {
-				newDeck.push(c+suits[s])
+				newDeck.push(c+suits[s]);
 			}
 		}
 		return newDeck;
@@ -94,55 +96,56 @@ $(document).ready(function(){
 		var totalAce = 0;
 		for(let i= 0; i <hand.length; i++) {
 			thisCardValue = Number(hand[i].slice(0,-1));
-			totalHandValue += thisCardValue;
 
 			if(thisCardValue > 10) {
 				thisCardValue = 10;
 			}else if(thisCardValue == 1) {
 				hasAce = true;
-				totalAce = 0;
+				totalAce++;
 				thisCardValue = 11;
 			}
 
 			totalHandValue += thisCardValue;
 		}
-			for(let i=0; i<totalAce; i++) {
-				if (totalHandValue > 21){
-					totalHandValue -= 10;
-				}
+		for(let i=0; i<totalAce; i++) {
+			if(totalHandValue > 21){
+				totalHandValue -= 10
+			}
 		}
 
 		var totalUpdated = '.' + who + '-total-number';
 		$(totalUpdated).text(totalHandValue);
-		return totalHandValue
+		return totalHandValue;
 	}
 
-	function checkWin () {
+	function checkWin() {
 		var playerTotal = calculateTotal(playersHand, 'player');
 		var dealerTotal = calculateTotal(dealersHand, 'dealer');
 		var winner = "";
 
 		if(playerTotal > 21) {
-			winner = "Player has busted. Dealer wins."
+			winner = "Player has busted. Dealer wins.";
 
 		}else if(dealerTotal > 21) {
-			winner = "Dealer has busted, You win!"
+			winner = "Dealer has busted, You win!";
+			// console.log(test1)
 		}else {
 			if(playerTotal > dealerTotal) {
-				winner = "You beat the dealer!"
+				winner = "You beat the dealer!";
 
 			}else if(playerTotal < dealerTotal) {
-				winner = " The dealer has beste dyou. We get yoru money!"
+				winner = " The dealer has bested you. You lose your money!";
 
 			}else {
-				winner = "It's a push"
+				winner = "It's a push";
 			}
-			$('message').text('')
+		
 		}
+		$('.message').text(winner);
 	}
 
 	function reset() {
-		theDeck = freshDeck.sliced();
+		theDeck = freshDeck.slice();
 		shuffleDeck();
 
 		playersHand = [];
@@ -152,6 +155,7 @@ $(document).ready(function(){
 
 		$('.player-total-number').html('0');
 		$('.dealer-total-number').html('0');
+		$('.message').text('')
 	}
 
 });

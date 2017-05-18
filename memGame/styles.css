@@ -1,0 +1,43 @@
+img {
+	max-width: 100% /*dont let images escape their parents*/
+}
+
+
+.card {
+	height: 300px;
+	min-width: 300px;
+	border: 2px solid black;
+	perspective: 500px;
+}
+
+.card-holder {
+	width: 300px;
+	position: relative;
+	transform-style: preserve-3d;
+	transition: 1s all;
+}
+
+.card-front, .card-back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	backface-visibility: hidden;
+}
+
+.card-front {
+	transform: rotateY(180deg);
+}
+
+.card-back {
+	background: url('images/logo-bw.png') no-repeat 50%;
+	height: 300px;
+	min-width: 300px;
+}
+
+.flip {
+	transform: rotateY(180deg);
+}
+
+.matched {
+	transform: rotateY(520deg);
+}
