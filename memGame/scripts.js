@@ -3,10 +3,12 @@ $(document).ready(function(){
 	'<img src="images/monsters-01.png">',
 	'<img src="images/monsters-02.png">',
 	'<img src="images/monsters-03.png">',
-	'<img src="images/monsters-04.png">'
+	'<img src="images/monsters-04.png">',
+	'<img src="images/monsters-17.png">',
+	'<img src="images/monsters-18.png">'
 	];
 
-	var gridSize = 8;
+	var gridSize = 12;
 	var memoryGameHTML = '';
 	for (let i=0; i< gridSize; i++) {
 		if(i<2) {
@@ -15,8 +17,12 @@ $(document).ready(function(){
 			card = cards[1];
 		}else if(i<6) {
 			card = cards[2];
-		}else {
+		}else if(i<8){
 			card = cards[3];
+		}else if(i<10){
+			card = cards[4];
+		}else {
+			card = cards[5];
 		}
 
 		memoryGameHTML +='<div class="card col-sm-3">';
@@ -36,12 +42,18 @@ $(document).ready(function(){
 		if(cardsUp.length == 2) {
 			var card1 = cardsUp[0].children[0].children[0].src;
 			var card2 = cardsUp[1].children[0].children[0].src;
+			var score = 0;
 			if(card1 == card2) {
 				cardsUp.removeClass('flip');
 				cardsUp.addClass('matched');
 				var matchedCards = $('.matched');
+
+				$('#Score').html("Matches " + matchedCards.length/2);
 				if(matchedCards.length == gridSize){
-					alert("You have won the game!");
+					setTimeout(function(){
+						alert("You have won the game!");
+					},1000);
+					
 				}
 			}else {
 				setTimeout(function(){
@@ -50,8 +62,12 @@ $(document).ready(function(){
 			
 			}
 		}
+
+
 	})
 
 
 
 });
+
+

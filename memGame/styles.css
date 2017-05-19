@@ -1,17 +1,50 @@
-img {
-	max-width: 100% /*dont let images escape their parents*/
+body {
+	background: url("images/stadium.jpg");
 }
 
 
+img {
+	max-width: 100%; /*dont let images escape their parents*/
+	
+}
+
+.firstRow {
+	height: 131px;
+}
+
+
+#Score {
+	color: yellow;
+	font-size: 50px;
+	text-shadow: 0px 0px 10px blue, 0px 0px 10px blue, 0px 0px 10px blue, 0px 0px 10px blue;
+
+}
+
+#button {
+	margin-left: 600px;
+	background-color: #192653;
+	color: #FFCB05;
+
+}
+
+#button1 {
+	margin-left: 800px;
+	background-color: #192653;
+	color: #FFCB05;
+
+}
+
 .card {
-	height: 300px;
-	min-width: 300px;
+	height: 270px;
+	min-width: 270px;
 	border: 2px solid black;
 	perspective: 500px;
+	padding: 0px;
+/*	margin: 5px;*/
 }
 
 .card-holder {
-	width: 300px;
+	width: 270px;
 	position: relative;
 	transform-style: preserve-3d;
 	transition: 1s all;
@@ -22,16 +55,18 @@ img {
 	top: 0;
 	left: 0;
 	backface-visibility: hidden;
+	opacity: 0.5;
 }
 
 .card-front {
 	transform: rotateY(180deg);
+
 }
 
 .card-back {
-	background: url('images/logo-bw.png') no-repeat 50%;
-	height: 300px;
-	min-width: 300px;
+	background: url('images/poke-logo.png') no-repeat 50%;
+	height: 270px;
+	min-width: 270px;
 }
 
 .flip {
@@ -39,5 +74,5 @@ img {
 }
 
 .matched {
-	transform: rotateY(520deg);
+	transform: rotateY(540deg);
 }
