@@ -1,5 +1,9 @@
 body {
 	background: url("images/stadium.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
 }
 
 
@@ -28,10 +32,15 @@ img {
 }
 
 #button1 {
-	margin-left: 800px;
+	margin-left: 35px;
 	background-color: #192653;
 	color: #FFCB05;
 
+}
+
+#ashScreen {
+	margin-left: 16px;
+	margin-top: 25px;
 }
 
 .card {

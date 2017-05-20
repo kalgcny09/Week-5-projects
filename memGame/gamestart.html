@@ -7,10 +7,9 @@
 
 	<link rel="stylesheet" type="text/css" href="styles.css">
 
-
-	
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript" src="scripts.js"></script>
 
@@ -22,23 +21,27 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12 firstRow" id="Score">
-		<input type="button" value="Start Game" id='button1' onclick="location.href='game.html';">
+			<div class="col-sm-4">
+			</div>
+			<div class="col-sm-4">
+				<input type="button" value="Start Game" id='button1' onclick="location.href='game.html';">
+			</div>
+			<div class="col-sm-4">
+			</div>
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="col-sm-12 secondRow">
-			<div class="col-sm-2">
+			<div class="col-sm-4">
 			</div>
-			<div class="col-sm-8">
-				<img src="images/ash.png">
+			<div class="col-sm-4">
+				<img src="images/ash.png" id="ashScreen">
 			</div>
-			<div class="col-sm-2">
+			<div class="col-sm-4">
 			</div>
-
-
+		</div>
 	</div>
-
 
 </div>
 </body>
