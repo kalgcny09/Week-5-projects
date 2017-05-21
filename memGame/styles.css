@@ -1,9 +1,12 @@
-body {
-	background: url("images/stadium.jpg");
+.container {
+	background: url("images/stadium2.png");
 	background-repeat: no-repeat;
-	background-position: center center;
-	background-attachment: fixed;
+	/*background-position: center center;*/
+/*	background-attachment: fixed;
 	background-size: cover;
+	*/
+	height: 600px;
+
 }
 
 
@@ -13,35 +16,66 @@ img {
 }
 
 .firstRow {
-	height: 131px;
+	height: 85px;
+}
+
+.textBox {
+	background-color: white;
+	margin-top: 25px;
 }
 
 
 #Score {
 	color: yellow;
-	font-size: 50px;
+	font-size: 13px;
 	text-shadow: 0px 0px 10px blue, 0px 0px 10px blue, 0px 0px 10px blue, 0px 0px 10px blue;
 
 }
 
 #button {
-	margin-left: 600px;
+	/*margin-left: 600px;*/
 	background-color: #192653;
 	color: #FFCB05;
+	height: 5px;
 
 }
 
-#button1 {
-	margin-left: 35px;
+#startGameB {
+/*	margin-left: 10px;*/
 	background-color: #192653;
 	color: #FFCB05;
+	height: 25px;
 
 }
 
 #ashScreen {
-	margin-left: 16px;
-	margin-top: 25px;
+	margin-left: 25px;
+	animation-name: fadein;
+	animation-duration: 2s;
+
+
 }
+
+@keyframes fadein  {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+p{
+	overflow: hidden;
+	white-space: nowrap;
+	margin: 0 auto;
+	animation: type 2s steps(60,end);
+
+}
+
+@keyframes type{ 
+  from { width: 0;}
+  to { width: 100%;}
+} 
+
+
+
 
 .card {
 	height: 270px;
